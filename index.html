@@ -5,161 +5,147 @@
 </head>
 
 <body>
-<div id="gift-list">
-	<input id="gift-name" type="text">
-	<a href="javascript:void(0)" class="btn" onclick="return addGift()">Thêm</a>	
-	<a href="javascript:void(0)" class="btn" onclick="return shuffleGift()">Tráo quà</a>
-	<a href="javascript:void(0)" class="btn" onclick="return displayGift()">Xong</a>
-</div>
-<ul id="gift-display">
+	<div id="wrapper">
+		<div id="logo">
 
-</ul>
-<script>
-function displayGift(){
-document.querySelector('#gift-display').className+=' prepared';
-document.querySelector('#gift-list').className+=' prepared';
-}
-function shuffle(elems) {
- 
-    allElems = (function(){
-	var ret = [], l = elems.length;
-	while (l--) { ret[ret.length] = elems[l]; }
-	return ret;
-    })();
- 
-    var shuffled = (function(){
-        var l = allElems.length, ret = [];
-        while (l--) {
-            var random = Math.floor(Math.random() * allElems.length),
-                randEl = allElems[random].cloneNode(true);
-            allElems.splice(random, 1);
-            ret[ret.length] = randEl;
-        }
-        return ret; 
-    })(), l = elems.length;
- 
-    while (l--) {
-        elems[l].parentNode.insertBefore(shuffled[l], elems[l].nextSibling);
-        elems[l].parentNode.removeChild(elems[l]);
-    }
- 
-}
+		</div>
+		<h3>
+		<input type="text" value="Lịch học 2021-2022"/>
+		</h3>
+		<table id="table">
+			<thead>
+				<tr>
+					<th class="time-header">Chores</th>
+					<th class="time-header">Monday</th>
+					<th class="time-header">Tuesday</th>
+					<th class="time-header">Wednesday</th>
+					<th class="time-header">Thursday</th>
+					<th class="time-header">Friday</th>
+					<th class="time-header">Saturday</th>
+					<th class="time-header">Sunday</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="time-line">18h-19h30</td>
+					<td class="time-line"><input type="text"/></td>
+					<td class="time-line"><input type="text"/></td>
+					<td class="time-line"><input type="text"/></td>
+					<td class="time-line"><input type="text"/></td>
+					<td class="time-line"><input type="text"/></td>
+					<td class="time-line"><input type="text"/></td>
+					<td class="time-line"><input type="text"/></td>
+				</tr>
+				
+				<tr>
+					<td class="time-line">19h30-21h</td>
+					<td class="time-line"><input type="text"/></td>
+					<td class="time-line"><input type="text"/></td>
+					<td class="time-line"><input type="text"/></td>
+					<td class="time-line"><input type="text"/></td>
+					<td class="time-line"><input type="text"/></td>
+					<td class="time-line"><input type="text"/></td>
+					<td class="time-line"><input type="text"/></td>
+				</tr>
+			</tbody>
 
-function shuffleGift(){
-shuffle( document.getElementsByTagName('li') );
-}
+			
+			
+			
+			
+			
 
+			
+		</table>
+	</div>
 
-function addGift(){
-var gift_content = document.querySelector('#gift-name').value;
-document.querySelector('#gift-display').innerHTML+='<li class="gift" onclick="return openGift(this)"><span>'+gift_content+'</span><a class="btn" href="javascript:void(0)" onclick="return removeGift(this)">Xóa</a></li>';
-}
-function removeGift(el){
-el.parentNode.remove();
-event.stopPropagation()
-return false;
-}
-function openGift(el){
-var audio = new Audio('gift.mp3');
-audio.play();
-el.className+=' anim';
-setTimeout(()=>{
-el.classList.remove("anim");
-el.className+=' open';
-},2500);
-
-}
-</script>
 <style>
-#gift-name{
-height:40px;
-padding-left:10px;
-flex:1;
-}
-#gift-list{
-display:flex;
-padding:10px;
-}
-#gift-list.prepared{
-display:none;
-}
-.prepared .btn{
-display:none;
-}
-.gift .btn{
-position:relative;
-z-index:9999;
-}
-
-.anim{
-	animation: shake 0.5s;
-
-  /* When the animation is finished, start again */
-  animation-iteration-count: infinite;
-}
-@keyframes shake {
-  0% { transform: translate(1px, 1px) rotate(0deg); }
-  10% { transform: translate(-1px, -2px) rotate(-1deg); }
-  20% { transform: translate(-3px, 0px) rotate(1deg); }
-  30% { transform: translate(3px, 2px) rotate(0deg); }
-  40% { transform: translate(1px, -1px) rotate(1deg); }
-  50% { transform: translate(-1px, 2px) rotate(-1deg); }
-  60% { transform: translate(-3px, 1px) rotate(0deg); }
-  70% { transform: translate(3px, 1px) rotate(-1deg); }
-  80% { transform: translate(-1px, -1px) rotate(1deg); }
-  90% { transform: translate(1px, 2px) rotate(0deg); }
-  100% { transform: translate(1px, -2px) rotate(-1deg); }
-}
-
-
-.btn{
-text-decoration:none;
-border:1px solid #0af;
-background:#09f;
-color:#fff;
-border-radius:4px;
-margin:0 5px;
-height:40px;
-line-height:40px;
-padding:0 5px;
-font-family:'Arial',sans-serif;
-}
-#gift-display{
-display:grid;
-grid-template-columns:repeat(auto-fill,200px);
-padding:0 10px;
-justify-content:center;
-align-items:center;
-grid-gap:10px;
-min-height:100%;
-}
-*{
-margin:0;
+body{
+background:#fe9c9b;
+--color-white:#fff;
+--color-black:#111;
+--color-brown:#f9e8de;
+--color-pink:#fe9c9b;
 padding:0;
-list-style:none;
-box-sizing:border-box;
+margin:0;
+/*
+background: #50a3a2;
+background: -webkit-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
+background: -moz-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
+background: -o-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
+background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
+*/
 }
-.gift{
+#wrapper{
+padding:60px;
+
+}
+#logo{
+background:url(june12-2021-logo.png);
+height:72px;
+background-repeat:no-repeat;
+background-position:center center;
+    background-origin: content-box;
+width:100%;
+}
+h3{
+background:var(--color-white);
+color:var(--color-black);
+height:60px;
+width:100%;
+
+text-align:center;
+}
+h3 input{
+text-align:center;
+font-family:Segoe UI,Arial,sans-serif;
+font-size:30px;
+height:60px;
+text-transform:uppercase;
+
+line-height:60px;
+margin:0 auto;
+border:none;
+}
+table{
+border-spacing:0;
+}
+tr{
+height:100px;
+line-height:100px;
+text-align:center;
+
+}
+tr th{
+background:var(--color-white);
+}
+tr:nth-child(2n+1){
+background:var(--color-brown);
+}
+tr:nth-child(2n){
+background:var(--color-white);
+}
+td{
+min-width:100px;
+}
+td:first-child{
 width:200px;
-height:200px;
-background:url(./gift.png);
-display:flex;
-justify-content:center;
-align-items:center;
-height:200px;
 }
-.gift span{
-	font-size:40px;
-	font-weight:700;
+td input{
+background:transparent;
+height:60px;
+line-height:60px;
+border:none;
+width:100%;
+
 }
-#gift-display.prepared span{
-	display:none;
+td,th,td input{
+font-family:Segoe UI,sans-serif;
+font-size:30px;
+text-align:center;
 }
-.gift.open span{
-	display:block !important;
-}
-.gift.open{
-background:url(./gift-open.png);
+th{
+font-family:system-ui;
 }
 </style>
 </body>
