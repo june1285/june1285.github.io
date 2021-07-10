@@ -66,6 +66,7 @@ background:#fe9c9b;
 --color-black:#111;
 --color-brown:#f9e8de;
 --color-pink:#fe9c9b;
+--padding:20px;
 padding:0;
 margin:0;
 /*
@@ -77,12 +78,13 @@ background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
 */
 }
 #wrapper{
-padding:60px;
+padding:var(--padding);
 
 }
 #logo{
 background:url(june12-2021-logo.png);
-height:72px;
+height:36px;
+background-size:366px;
 background-repeat:no-repeat;
 background-position:center center;
     background-origin: content-box;
@@ -111,8 +113,8 @@ table{
 border-spacing:0;
 }
 tr{
-height:100px;
-line-height:100px;
+height:50px;
+line-height:50px;
 text-align:center;
 
 }
@@ -141,7 +143,7 @@ width:100%;
 }
 td,th,td input,th input{
 font-family:Segoe UI,sans-serif;
-font-size:20px;
+font-size:15px;
 text-align:center;
 }
 th input{
