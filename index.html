@@ -27,7 +27,7 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td class="time-line">18h-19h30</td>
+					<td class="time-line"><input type="text" value="18h-19h30"/></td>
 					<td class="time-line"><input type="text"/></td>
 					<td class="time-line"><input type="text"/></td>
 					<td class="time-line"><input type="text"/></td>
@@ -38,7 +38,7 @@
 				</tr>
 				
 				<tr>
-					<td class="time-line">19h30-21h</td>
+					<td class="time-line"><input type="text" value="19h30-21h"/></td>
 					<td class="time-line"><input type="text"/></td>
 					<td class="time-line"><input type="text"/></td>
 					<td class="time-line"><input type="text"/></td>
@@ -58,6 +58,18 @@
 			
 		</table>
 	</div>
+	<div id="action">
+		<a href="javascript:void(0)" onclick="return addRow()">Thêm 1 hàng</a>
+		<a href="javascript:void(0)" onclick="return removeRow()">Xóa 1 hàng</a>
+	</div>
+	<script>
+		function addRow(){
+			document.querySelector('#table tbody').innerHTML+='<tr><td class="time-line"><input type="text" value="19h30-21h"/></td><td class="time-line"><input type="text"/></td><td class="time-line"><input type="text"/></td><td class="time-line"><input type="text"/></td><td class="time-line"><input type="text"/></td><td class="time-line"><input type="text"/></td><td class="time-line"><input type="text"/></td><td class="time-line"><input type="text"/></td></tr>';
+		}
+		function removeRow(){
+			document.querySelector('#table tbody tr:last-child').remove();
+		}
+	</script>
 
 <style>
 body{
@@ -111,6 +123,8 @@ border:none;
 }
 table{
 border-spacing:0;
+padding-bottom:500px;
+width:100%;
 }
 tr{
 height:50px;
@@ -137,9 +151,12 @@ td input,th input{
 background:transparent;
 height:var(--padding);
 line-height:var(--padding);
-border:none;
-width:100%;
 
+width:100%;
+}
+input{
+border:none !important;
+outline:none !important;
 }
 td,th,td input,th input{
 font-family:Segoe UI,sans-serif;
