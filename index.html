@@ -15,14 +15,14 @@
 		<table id="table">
 			<thead>
 				<tr>
-					<th class="time-header">Chores</th>
-					<th class="time-header">Monday</th>
-					<th class="time-header">Tuesday</th>
-					<th class="time-header">Wednesday</th>
-					<th class="time-header">Thursday</th>
-					<th class="time-header">Friday</th>
-					<th class="time-header">Saturday</th>
-					<th class="time-header">Sunday</th>
+					<th class="time-header">Time</th>
+					<th class="time-header"><input type="text" value="Monday"/></th>
+					<th class="time-header"><input type="text" value="Tuesday"/></th>
+					<th class="time-header"><input type="text" value="Wednesday"/></th>
+					<th class="time-header"><input type="text" value="Thursday"/></th>
+					<th class="time-header"><input type="text" value="Friday"/></th>
+					<th class="time-header"><input type="text" value="Saturday"/></th>
+					<th class="time-header"><input type="text" value="Sunday"/></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -126,12 +126,12 @@ tr:nth-child(2n){
 background:var(--color-white);
 }
 td{
-min-width:100px;
+min-width:60px;
 }
 td:first-child{
-width:200px;
+width:100px;
 }
-td input{
+td input,th input{
 background:transparent;
 height:60px;
 line-height:60px;
@@ -139,10 +139,13 @@ border:none;
 width:100%;
 
 }
-td,th,td input{
+td,th,td input,th input{
 font-family:Segoe UI,sans-serif;
-font-size:30px;
+font-size:20px;
 text-align:center;
+}
+th input{
+font-weight:700;
 }
 th{
 font-family:system-ui;
